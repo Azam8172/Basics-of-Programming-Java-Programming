@@ -1,0 +1,10 @@
+static void Pattern(int N){
+//Enter your code here
+    for(int j = 0; j < N; ++j){
+      int ini = j*6;
+
+      for(int i = 0; i < N; ++i)
+        System.out.print((4*i + ini) + " ");
+      System.out.println();
+    }
+}
