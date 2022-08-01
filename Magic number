@@ -1,0 +1,29 @@
+static int MagicNumber(int N){
+//Enter your code here
+int i=0;
+while(divCheck(N-i)==true && divCheck(N+i)==true){
+    i++;
+}
+if(divCheck(N-i)==false){
+    return N-i;
+}
+else{
+    return N+i;
+}
+}
+
+static boolean divCheck(int N){
+    boolean a = false;
+    boolean b = false;
+    while(N>0){
+        if(N%10==7)a=true;
+        if(N%10==9)b=true;
+        N/=10;
+    }
+    if(a&&b){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
