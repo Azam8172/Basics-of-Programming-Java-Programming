@@ -1,0 +1,50 @@
+# Basics-of-Programming-Java-Programming
+
+
+Number of characters excluding space
+easy
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+Given a string s, Find total number of characters excluding spaces.
+Input
+First line of the input contains the string s.
+
+Constraints
+1 <= s. size() <= 105
+Output
+Print number of characters excluding space
+Example
+Sample Input 1:
+newton School
+
+Sample Output 1:
+12
+
+////////////////////**********************//////////////////////////////
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+                      // Your code here
+                      int sum=0;
+        Scanner s=new Scanner(System.in);
+        String val=s.nextLine();
+        int len=val.length();
+            for(int i=0;i<len;i++)
+            {
+                if(val.charAt(i)==' ')
+                    {
+                        continue;
+                    }
+                    sum++;
+            }
+                    System.out.println(sum);
+        }
+}
