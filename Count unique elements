@@ -1,0 +1,62 @@
+# Basics-of-Programming-Java-Programming
+
+
+Count unique elements
+easy
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+Given an array arr of numbers, your task is to count the number of unique elements in it.
+Input
+First line of the input contains n (Number of elements). Next line contains the input of the array.
+
+For python users you just have to complete the function.
+
+Constraints
+1<= n <= 1e6
+1<= arr[i] <= 1e9
+Output
+Print the number of unique elements in the array
+
+For python users return the count of unique elements from the given function
+Example
+Sample Input 1
+4
+1 2 3 3
+
+Sample Output 1
+3
+
+Sample Input 2
+6
+1 1 2 2 3 3
+
+Sample Output 2
+3
+
+//////////////////********************************************************************************
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args)throws IOException {
+                      // Your code here
+
+                 BufferedReader bi = new BufferedReader(
+                     new InputStreamReader(System.in));
+
+                 int n = Integer.parseInt(bi.readLine());
+
+                 String[] strNums = bi.readLine().split(" ");
+                 HashSet<String> set = new HashSet<>();
+                 for(int i=0;i<n;i++)
+                 {
+                    set.add(strNums[i]);
+                     }     
+                 System.out.println(set.size());
+    }
+}
+
