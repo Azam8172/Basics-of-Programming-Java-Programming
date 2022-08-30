@@ -1,0 +1,84 @@
+# Basics-of-Programming-Java-Programming
+
+///////////////*****************////////////////////
+
+Identity matrix
+easy
+hint
+Hint
+
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+given an integer N and a matrix of size (N x N). Check whether given matrix is identity or not.
+Input
+First line contain a single integer N
+Next N line contain N space- separated integer i. e. elements of matrix.
+Output
+If given matrix is identity matrix. print "Yes" other-wise print "NO"
+
+Constraints:
+1<=N<=100
+Example
+Sample Input 1:
+3
+1 0 0
+0 1 0
+0 0 1
+
+Sample Output 1:
+Yes
+
+Explanation:
+Given matrix is an identity matrix because all main diagonal element is one and rest of element is one.
+
+
+////////////////*****************///////////////////
+
+
+
+#include <stdio.h> // header file for Standard Input Output
+#include <stdlib.h> // header file for Standard Library
+
+int main() {
+
+    //Your code here
+      int flag=0;
+    int n=0,i=0,j=0,c=0;
+    int arr[99][99];
+    scanf("%d",&n);
+    c=n;
+    for(i=0;i<n;i++)
+    {
+       for(j=0;j<c;j++)
+       {
+           scanf("%d",&arr[i][j]);
+       }
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            if(i==j && arr[i][j]!=1)
+            {
+                flag = -1;
+                break;
+            }
+            else if(i != j && arr[i][j] != 0)
+            {
+                flag = -1;
+                break;
+            }
+        }
+    }
+    if(flag == 0)
+    {
+        printf("Yes");
+    }
+    else{
+        printf("No");
+    }
+return 0;
+}
+
+
