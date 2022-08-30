@@ -1,0 +1,86 @@
+# Basics-of-Programming-Java-Programming
+
+///////////////////////////**************************////////////////////////////
+
+
+Return two prime numbers
+easy
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+Given an even number (greater than 2), return two prime numbers whose sum will be equal to the given number. If there are several combinations possible, outcome the one in which the minimum number is minimised.
+
+NOTE: A solution will always exist, read Goldbach’s conjecture. Also, solve the problem in linear time complexity, i.e., O(n).
+
+Problem was asked in Yahoo.
+
+Constraints:
+1 ≤ T ≤ 70
+1 ≤ N ≤ 100000
+Input
+The first line contains T, the number of test cases. The following T lines consist of a number each, for which we'll find two prime numbers.
+Output
+For every test case print, two prime numbers space-separated, such that the smaller number appears first. Answer for each test case must be in a new line.
+Example
+Input:
+5
+74
+1024
+66
+8
+9990
+
+Output:
+3 71
+3 1021
+5 61
+3 5
+17 9973
+
+
+/////////////////////////******************///////////////////////////
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+
+class Main {
+	// Generate all prime numbers less than n.
+	static boolean SieveOfEratosthenes(int n,boolean isPrime[])
+	{
+		isPrime[0] = isPrime[1] = false;
+		for (int i = 2; i <= n; i++)
+			isPrime[i] = true;
+
+		for (int p = 2; p * p <= n; p++) {
+			if (isPrime[p] == true){
+				for (int i = p * p; i <= n; i += p)
+					isPrime[i] = false;
+			}
+		}
+		return false;
+	}
+	static void findPrimePair(int n){
+		boolean isPrime[] = new boolean[n + 1];
+		SieveOfEratosthenes(n, isPrime);
+		for (int i = 0; i < n; i++) {
+			if (isPrime[i] && isPrime[n - i]) {
+				System.out.print(i + " " + (n - i));
+				return;
+			}
+		}
+	}
+
+	// Driver code
+	public static void main(String[] args){
+	Scanner sc = new Scanner(System.in);
+		int u = sc.nextInt();
+		while(u>0){
+			int n = sc.nextInt();
+		findPrimePair(n);
+		u--;
+		System.out.println();
+	}
+}
+}
