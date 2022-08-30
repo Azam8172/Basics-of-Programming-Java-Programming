@@ -1,0 +1,63 @@
+# Basics-of-Programming-Java-Programming
+
+
+Find it!!
+easy
+hint
+Hint
+
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+Given an integer K, find a positive integer x such that K = x2 + 3*x. If no such positive integer x exists, print -1.
+Input
+First and the only line of the input contains an integer K.
+
+Constraints:
+1 <= K <= 1018
+Output
+Print a positive integer x such that the above equation satisfies. If no such integer x exists, print -1.
+Example
+Sample Input:
+28
+
+Sample Output:
+4
+
+Explaination:
+42 + 3*4 = 28
+There is no other positive integer that will give such result.
+
+////////////////////****************************/////////////////////////
+
+
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static long mod=(long)1e+18;
+    public static long Solve(long n){
+        long ans=0;
+        for(long x=1;x<=Math.sqrt(mod);x++){
+            if(n==(x*x)+(3*x)){
+                ans=x;
+                return ans;
+            }else{
+                ans=-1;
+            }
+        }
+        return ans;
+    }
+    public static void main (String[] args)throws IOException{
+          BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+          long n = Long.parseLong(br.readLine());
+          System.out.println(Solve(n));
+    }
+}
+
+
+
+
