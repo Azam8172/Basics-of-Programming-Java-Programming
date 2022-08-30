@@ -1,0 +1,67 @@
+# Basics-of-Programming-Java-Programming
+
+Help Megha
+easy
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+In School Megha was given a homework to find the number of prime numbers before N (Including that number too), since Megha is weak in Maths she needs your help to do her homework.
+Input
+The first line of the input contains the number of testcases T,
+Next T lines contains the value N.
+
+Constraints
+1 <= T <= 1e5
+1 <= N <= 1e5
+Output
+Print the number of primes number before that number.
+Example
+Sample Input 1:
+2
+3
+11
+
+Sample Output 1:
+2
+5
+
+
+///////////////*****************////////////////////////
+
+
+import java.io.*; // for handling input//output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+                      // Your code here
+                      Scanner sc=new Scanner(System.in);
+            boolean prime[] = new boolean[100005];
+            for(int i=0;i<100005;i++)
+                prime[i]=true;
+            prime[0] = prime[1] = false;
+            for (int i = 2; i * i < 100005; i++) {
+                if (prime[i]) {
+                    for (int j = i * i; j < 100005; j += i)
+                        prime[j] = false;
+                }
+            }
+            int prefix[]=new int[100005];
+            prefix[0]=0;
+            for (int i = 1; i < 100005; i++) {
+                prefix[i] = 0;
+                if (prime[i]) {
+                    prefix[i] = prefix[i - 1] + 1;
+                } else {
+                    prefix[i] = prefix[i - 1];
+                }
+            }
+            int test=sc.nextInt();
+            for(int i=0;i<test;i++){
+                    int c=sc.nextInt();
+                    System.out.println(prefix[c]);
+            }
+    }
+}
