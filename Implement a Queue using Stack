@@ -1,0 +1,117 @@
+Implement a Queue using Stack
+easy
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
+
+Implement the Myqueue class:
+void push(int x) Pushes element x to the back of the queue.
+int pop() Removes the element from the front of the queue and returns it.
+int peek() Returns the element at the front of the queue.
+boolean empty() Returns true if the queue is empty, false otherwise.
+
+Note:
+You must use only standard operations of a stack, which means only push, peek, size, and is empty operations are valid.
+Input
+User task:
+Since this will be a functional problem, you don't have to take input. You just have to complete the functions in class Myqueue.
+Push : Takes the element to be pushed at end as parameter.
+Pop : Remove the element from front of queue and returns it.
+Peek : Returns the front element of queue.
+Empty: Return true if the queue is empty.
+
+Expected Time Complexities:
+Push: O(Size of Queue)
+Pop: O(1)
+Peek: O(1)
+Empty: O(1)
+Output
+No need to output anything. Just complete the functions.
+Example
+Sample Input 1:-
+8
+Push 10
+Push 5
+Push 3
+Pop
+Pop
+Peek
+Pop
+Empty
+
+Sample Output 1:-
+10
+5
+3
+3
+YES
+
+Explanation
+Initially Queue : {}
+Push 10 - > Queue : {10 }
+Push 5 -> Queue : {10, 5}
+Push 3 -> Queue : {10, 5, 3}
+Pop -> Queue : {5 , 3}
+Pop -> Queue : {3}
+Peek -> 3
+Pop -> Queue: {}
+Yes it's empty now
+
+Sample Input 2:-
+4
+Push 3
+Pop
+Push 5
+Empty
+
+Sample Output 2:-
+3
+NO
+
+Explanation:
+Initially Queue : {}
+Push 3 -> Queue : {3}
+Pop -> Queue: {}
+Push 5 -> Queue : {5}
+Empty -> NO
+
+
+
+
+/////////////////////////////////////*******************************************************
+
+
+
+
+
+
+
+
+
+static class Myqueue{
+        Stack<Integer> queue = new Stack<Integer>();
+        public void push(int x) {
+
+        Stack<Integer> temp = new Stack<Integer>();
+    while(!queue.empty()){
+        temp.push(queue.pop());
+    }
+    queue.push(x);
+    while(!temp.empty()){
+        queue.push(temp.pop());
+    }   
+        }
+        public int pop() {
+
+      return queue.pop();
+        }
+
+        public int peek() {
+         return queue.peek();
+        }
+        
+        public boolean empty() {
+           return queue.empty();  
+        }
+}
