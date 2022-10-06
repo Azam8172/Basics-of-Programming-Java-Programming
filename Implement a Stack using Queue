@@ -1,0 +1,114 @@
+Implement a Stack using Queue
+easy
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+Implement a last- in- first- out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).
+Implement the MyStack class:
+void push(int x) Pushes element x to the top of the stack.
+int pop() Removes the element on the top of the stack and returns it.
+int peek() Returns the element on the top of the stack.
+boolean empty() Returns true if the stack is empty, false otherwise.
+
+Note:
+You must use only standard operations of a queue, which means that only push to back, peek/pop from front, size and is empty operations are valid.
+Input
+User task:
+Since this will be a functional problem, you don't have to take input. You just have to complete the functions in class MyStack.
+Push : Takes the element to be pushed at top as parameter.
+Pop : Remove the element from top of stack and returns it.
+Peek : Returns the top element of stack.
+Empty: Return true if the stack is empty.
+
+Expected Time Complexities:
+Push: O(Size of Stack)
+Pop: O(1)
+Peek: O(1)
+Empty: O(1)
+Output
+No need to output anything. Just complete the functions.
+Example
+Sample Input 1:-
+8
+Push 10
+Push 5
+Push 3
+Pop
+Pop
+Peek
+Pop
+Empty
+
+Sample Output 1:-
+3
+5
+10
+10
+YES
+
+Explanation
+Initially Stack : {}
+Push 10 - > Stack : {10 }
+Push 5 - > Stack : {10, 5}
+Push 3 - > Stack : {10, 5, 3}
+Pop - > Stack : {10, 5}
+Pop - > Stack : {10}
+Peek - > 10
+Pop - > Stack: {}
+Yes it's empty now
+
+Sample Input 2:-
+4
+Push 3
+Pop
+Push 5
+Empty
+
+Sample Output 2:-
+3
+NO
+
+Explanation:
+Initially Stack : {}
+Push 3 - > Stack : {3}
+Pop - > Stack: {}
+Push 5 - > Stack : {5}
+Empty - > NO
+
+
+
+
+
+.....................................////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+static class MyStack {
+    private Queue<Integer> queue = new LinkedList<>();
+        public MyStack() {
+
+        }
+    
+        public void push(int x) {
+            queue.add(x);
+        for (int i=1; i<queue.size(); i++)
+            queue.add(queue.remove());
+        }
+    
+        public int pop() {
+           return queue.remove();
+        }
+    
+        public int top() {
+            return queue.peek();
+        }
+    
+        public boolean empty() {
+            return queue.isEmpty();
+        }
+    }
