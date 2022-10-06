@@ -1,0 +1,75 @@
+Binary to Decimal
+easy
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+You are given a binary number in the form of a linked list. So, value at each node is either 0 or 1. You are given head which is a reference node to a singly- linked list.
+
+Return the decimal value of the number in the linked list.
+Input
+User task:
+Since this will be a functional problem, you don't have to take input. You just have to complete the functions decimalValue that takes the head of the linked list as parameter.
+
+Constraints:
+The Linked List is not empty.
+Number of nodes will not exceed 30.
+Each node's value is either 0 or 1.
+Output
+Return an integer - the decimal equivalent of the binary number.
+Example
+Sample Input 1:-
+101
+
+Sample Output 1:-
+5
+
+Sample Input 2:-
+1101
+
+Sample Output 2:-
+13
+
+Explanation:
+1101 = 2^3 + 2^2 + 2^0 = 13
+
+
+///////////////////////////////////////////////////////////////********************************************************************
+
+
+
+
+
+
+
+/*
+class Node
+    {
+    	int data;
+    	Node next;
+    	Node(int d){
+    	    data=d;
+    	}
+    };
+*/
+    static int decimalValue(Node head)
+    {
+    	// Complete the code
+		int count=0;
+		Node temp=head;
+		while(temp!=null)
+        {
+			count++;
+			temp=temp.next;
+		}
+		int digit=0;
+		while(head!=null)
+        {
+			int sum=(int)Math.pow(2,count-1);
+			digit=digit+sum*head.data;
+			count--;
+			head=head.next;
+		}
+		return digit;
+    }
+
+
