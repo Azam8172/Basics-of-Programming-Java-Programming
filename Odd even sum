@@ -1,0 +1,86 @@
+Odd even sum
+easy
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+You are given head which is a reference node to a singly- linked list. Complete the function oddeven which returns the absolute difference of sum of all elements at even nodes and odd nodes. The nodes are numbered from 1.
+Input
+User task:
+Since this will be a functional problem, you don't have to take input. You just have to complete the function oddeven that takes the head of the linked list as parameter.
+
+Constraints:
+The Linked List is not empty.
+Number of nodes will not exceed 1000.
+Output
+Return an integer - the absolute difference of sum of all elements at even nodes and odd nodes.
+Example
+Sample Input 1:-
+3
+1 2 3
+
+Sample Output 1:-
+2
+
+Explanation
+Odd sum = 1 + 3 = 4
+Even sum = 2
+Odd sum - even sum = 4 - 2 = 2
+
+
+Sample Input 2:-
+2
+1 2
+
+Sample Output 2:-
+1
+
+Explanation:
+Odd sum = 1
+Even sum = 2
+Even sum - Odd sum = 2 - 1 = 1
+
+
+
+
+
+////////////////////////////////////////////////////*****************************************************************************
+
+
+
+
+
+
+
+
+
+
+/*
+class Node
+    {
+    	int data;
+    	Node next;
+    	Node(int d){
+    	    data=d;
+    	}
+    }; 
+*/
+static int oddeven(Node head)
+    {
+    	// Complete the code
+		int odd = 0;
+		int even = 0;
+		int flag=1;
+		while (head != null)
+		{
+			if(flag==1){
+				odd+=head.data;
+
+			}
+			else{
+				even+=head.data;
+			}
+			flag^=1;
+			head = head.next;
+		}
+		return Math.abs(odd-even);
+    }
